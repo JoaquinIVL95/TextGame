@@ -5,14 +5,14 @@ Class Enemigo{
     private $idEnemigo ;
     private $hpEnemigo ;
     private $atqEnemigo ;
-    private $defEnemeigo ;
+    private $defEnemigo ;
 
     public function __construct($id, $hp , $atq , $def)
     {
         $this->idEnemigo = $id;
         $this->hpEnemigo = $hp;
         $this->atqEnemigo = $atq;
-        $this->defEnemeigo = $def;
+        $this->defEnemigo = $def;
     }
 
     public function getIdEnemigo()
@@ -45,13 +45,13 @@ Class Enemigo{
     }
 
     
-    public function getDefEnemeigo()
+    public function getDefEnemigo()
     {
-        return $this->defEnemeigo;
+        return $this->defEnemigo;
     }
     public function setDefEnemeigo($defEnemeigo)
     {
-        $this->defEnemeigo = $defEnemeigo;
+        $this->defEnemigo = $defEnemeigo;
     }
 
     
@@ -63,6 +63,6 @@ Class Enemigo{
         "Id: " . $this->getIdEnemigo() . "\n".
         "HP: " . $this->getHpEnemigo() . "\n".
         "AtQ: " . $this->getAtqEnemigo() .  "\n".
-        "DEF: " . $this->getDefEnemeigo() . "\n";
+        "DEF: " . $this->getDefEnemigo() . "\n";
     }
 }

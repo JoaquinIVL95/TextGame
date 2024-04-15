@@ -17,13 +17,43 @@ $objEnemigos = [$objEnemigo1,$objEnemigo2];
 $objCombate = new Combate($objPersonaje, $objEnemigos);
 
 
-echo $objCombate;
-// do {
+// echo $objCombate;
 
+$exit = false;
+while($exit != true) { 
+    
 
+    echo "Eliga su accion: \n";
+    echo "1. Atacar \n";
+    echo "2. Salir\n";
 
+    $opcion =trim(fgets(STDIN));
 
+    switch ($opcion){
+        case 1:
+            $atacarA = 0;
+            $combate = $objCombate->atacar($atacarA) ;
 
-// }while ($exit != true);
+            if($combate > 0 ){
+                echo "daño realizado \n";
+                echo "Puntos de vida restante del oponente: \n" . $combate; 
 
+            }else{
+                echo "Enemigo abatido";
+                unset( $objEnemigos[0]);
+                $atacarA += 1;
+               
+            }
+            echo  "\n" ."\n";
 
+            
+            break;
+        case 2: 
+            $exit = true;
+            break;
+            
+        default :
+            echo "Opcion no valida"."\n";
+            break;
+    }
+}

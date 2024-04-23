@@ -3,12 +3,16 @@
 include 'Personaje.php';
 include 'Enemigo.php';
 include 'Combate.php';
+include 'TiraDados.php';
 
 $objPersonaje = new Personaje (1, 100 , 20 , 5);
 
 $objEnemigo1= new Enemigo (1 , 70 , 8 , 4);
 $objEnemigo2= new Enemigo (2, 90 , 6 , 3);
 $objEnemigos = [$objEnemigo1,$objEnemigo2];
+$opcionDado = 0; 
+$objTirarDados = new TiraDados($opcionDado);
+
 
 // echo $objPersonaje . "\n\n";
 // echo $objEnemigo1 . "\n\n";
@@ -35,8 +39,14 @@ while($exit != true) {
             $combate = $objCombate->atacar($atacarA) ;
 
             if($combate > 0 ){
-                echo "daño realizado \n";
-                echo "Puntos de vida restante del oponente: \n" . $combate; 
+                if($objTirarDados->tirarDado(1)  <=12){
+                    echo "daño realizado \n";
+                    echo "Puntos de vida restante del oponente: \n" . $combate; 
+                }else{
+                    echo "Fallo el ataque \n";
+                    echo "Puntos de vida restante: " . $combate->getEnemigo()."\n";
+                }
+                    
 
             }else{
                 echo "Enemigo abatido";

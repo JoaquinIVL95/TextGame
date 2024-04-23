@@ -5,10 +5,12 @@ Class Combate{
 
     private $jugador;
     private $enemigo;
+    private $turnoActual;
 
     public function __construct($jugador, $enemigo){
         $this->jugador = $jugador;
         $this->enemigo = $enemigo;
+        $this->turnoActual = 0;
     }
 
     public function getJugador(){
@@ -17,6 +19,13 @@ Class Combate{
 
     public function setJugador($jugador){
         $this->jugador = $jugador;
+    }
+
+    public function getTurnoActual(){
+        return $this->turnoActual;
+    }
+    public function setTurnoActual($nuevoTurno){
+        $this->turnoActual = $nuevoTurno;
     }
 
     
@@ -42,7 +51,7 @@ Class Combate{
        
 
         $dañoCalculado = $jugador->getAtqJugador() - $enemigoSelec->getDefEnemigo();
-        if($enemigoSelec->getHpEnemigo() > 0){
+        if($enemigoSelec->getHpEnemigo() > 0 ){
 
     
             $enemigoSelec->setHpEnemigo($enemigoSelec->getHpEnemigo() - $dañoCalculado);
@@ -58,6 +67,8 @@ Class Combate{
         }
         return $cadena;
     }
+
+    
     
 
     public function __toString()
